@@ -1,0 +1,51 @@
+.immi__profile-form {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+.immi__profile-form__left {
+    flex: 0.5;
+}
+.immi__profile-form__right {
+    flex: 1;
+}
+
+.immi__profile-form img {
+    width: 220px;
+    height: 220px;
+}
+.immi__profile-form__group {
+    display: flex;
+    flex-direction: column;
+    margin-top: 0.2rem;
+  }
+  .immi__profile-form__group input {
+    min-height: 50px;
+    width: 60%;
+    font-family: var(--font-family);
+    font-size: 16px;
+    line-height: 27px;
+    background: var(--color-footer);
+    border: 2px solid var(--color-footer);
+    padding: 0 0.5rem;
+    outline: none;
+    color: #fff;
+    border-radius: 5px;
+  }
+  .immi__profile-form__group button {
+    flex: 0.6;
+    min-height: 50px;
+    width: 60%;
+    color: #fff;
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 27px;
+    
+    background: #cc6810;
+    border-radius: 5px;
+    cursor: pointer;
+    outline: none;
+    padding: 0 1rem;
+    border: none;
+  }
