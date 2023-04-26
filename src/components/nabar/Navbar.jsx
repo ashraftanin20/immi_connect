@@ -26,7 +26,6 @@ function Navbar() {
     e.preventDefault();
     dispatch(logoutUser(userInfo));
   }
-
   return (
     <div className="immi__navbar">
       <div className="immi__navbar-links">

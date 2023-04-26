@@ -1,72 +1,55 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { useNavigate } from 'react-router-dom';
-import { registerUser } from '../../features/actions/RegisterAction';
+import { Link, useNavigate } from 'react-router-dom';
 import './profile.css';
 import defaulProfile from '../../assets/user-profile.svg';
+import LoadingBox from '../../components/LoadingBox';
+import MessageBox from '../../components/MessageBox';
+import { getProfile } from '../../features/actions/ProfileAction';
 
 function UserProfile() {
     const { userInfo } = useSelector(state => state.auth);
-    const { user } = userInfo;
     const navitate = useNavigate();
     const dispatch = useDispatch();
 
-    const [name, setNamet] = useState(user.name);
-    const [email, setEmail] = useState(user.email);
-    const [telephone, setTelephone] = useState(user.telephone || '');
-    const [image, setImage] = useState(user.photo || defaulProfile);
+    const { userProfile, profileLoading, profileError, profileLoaded } = useSelector(state => state.userProfileData)
 
-    const submitHandler = (e) => {
-        e.preventDefault();
-        const payload = {
-            name: name,
-            email: email,
-           
-          }
-          if (payload.password !== payload.password_confirmation) {
-          alert("Password does not match the confirm password!");
-          } else {
-              dispatch(registerUser(payload));
-          }
-    }
+
     useEffect(() => {
       if(!userInfo) {
         navitate('/');
       }
-    }, [userInfo, navitate]);
+      dispatch(getProfile(userInfo.user.id)); 
+    }, [userInfo, navitate, dispatch]);
     
   return (
-    <div className="immi__form-container section__margin" id="user-profile">
+    <div className="immi__form-container section__margin">
         <div>
           <div className="immi__form-heading">
             <h1 className="gradient__text">Your Profile Data</h1>
-            <p>Update your profile data here</p>
+            <p>Your profile</p>
+            {profileLoading && (<LoadingBox>Loading...</LoadingBox>)}
+            {profileError && (<MessageBox variant="danger">{profileError}</MessageBox>)}
+            </div>
+            <div className="immi__profile-form">
+              <div className="immi__profile-form__left">      
+                  <img src={userProfile.user.image || defaulProfile} alt="user porofile" />
+              </div>
+              <div className="immi__profile-form__right">
+                  <p><strong>Name: </strong>{userProfile.user.name}</p>
+                  <p><strong>Email: </strong>{userProfile.user.email}</p>
+                  <p><strong>Telephone: </strong>{userProfile.user.telephone}</p>
+                  <p><strong>I am a Volunteer: </strong>{userProfile.user.is_volunteer === 1 ? "Yes" : "No"}</p>
+                  {userProfile.user.is_volunteer === 1 && (
+                  <p><strong>What kind(s) of support I can provide: </strong>{userProfile.user.support_type}</p>)}
+                <div className="immi__profile-form__group">
+                  <br />
+                  <button><Link to="/user/edit">Edit Profile</Link></button>
+                </div>
+              </div>
+            </div>
           </div>
-        <form className="immi__profile-form" onSubmit={submitHandler} >
-            <div className="immi__profile-form__left">
-                <img src={image} alt="profile" />
-            </div>
-            <div className="immi__profile-form__right">
-              <div className="immi__profile-form__group">
-                <p>Name:</p>
-                <input type="text" onChange={(e) => setNamet(e.target.value)} value={name} name='name' placeholder="Your name" />
-              </div>
-              <div className="immi__profile-form__group">
-                <p>Email:</p>
-                <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} name='email' placeholder="Your Email" />
-              </div>
-              <div className="immi__profile-form__group">
-                <p>Telephone:</p>
-                <input type="text" value={telephone} onChange={(e) => setTelephone(e.target.value)} name='telephone' placeholder="Telephone NO" />
-              </div>
-              <div className="immi__profile-form__group">
-                <br />
-                <button type='submit' className="default-btn">Update</button>
-            </div>
-            </div>
-        </form>
-      </div>
-    </div>
+        </div>
   )
 }
 

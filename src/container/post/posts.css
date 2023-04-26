@@ -1,0 +1,73 @@
+.immi__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.immi__section {
+    display: flex;
+    align-items: center;
+}
+.immi__section-heading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.immi__section-heading h1 {
+    font-size: 42px;
+    font-family: var(--font-family);
+    font-weight: bold;
+    line-height: 48px;
+}
+.immi__section-center {
+    position: block;
+    
+}
+.immi__post-container {
+    display: flex;
+    flex-direction: column;
+}
+.immi__post-container h2, h3 {
+    color: var(--color-header);
+    font-family: var(--font-family);
+}
+.immi__post-container h2 {
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 24px;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+}
+.immi__post-container h3 {
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 22px;
+}
+.immi__post-extra {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+.immi__post-container p {
+    font-family: var(--font-family);
+    color: var(--color-text);
+    font-size: 14px;
+    line-height: 18px;
+    text-indent: 1rem;
+}
+.immi__post-container button {
+    font-family: var(--font-family);
+    color: var(--color-header);
+    width: fit-content;
+    font-size: 18px;
+    line-height: 32px;
+    background: var(--color-button);
+    padding: 1rem 2rem;
+    border-radius: 5px;
+    border: none;
+    align-self: center;
+    
+}
+.immi__post-container button:hover {
+   border: 1px solid var(--color-header); 
+}

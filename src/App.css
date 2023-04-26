@@ -35,11 +35,11 @@ a {
 .immi__form-heading {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
 }
 .immi__form-heading h1 {
-  font-size: 24px;
+  font-size: 32px;
   line-height: 36px;
   font-weight: 800;
   max-width: 510px;
@@ -57,6 +57,7 @@ a {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   width: 100%;
 }
 
@@ -66,7 +67,15 @@ a {
   width: 40%;
   margin-top: 0.2rem;
 }
-.immi__form-group input {
+.immi__form-group p, label {
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--color-text);
+  cursor: pointer;
+}
+.immi__form-group input, textarea {
   min-height: 50px;
   font-family: var(--font-family);
   font-size: 16px;
@@ -78,6 +87,7 @@ a {
   color: #fff;
   border-radius: 5px;
 }
+
 .immi__form button {
   flex: 0.6;
   min-height: 50px;

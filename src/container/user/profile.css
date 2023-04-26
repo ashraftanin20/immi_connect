@@ -1,51 +1,75 @@
 .immi__profile-form {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-}
-.immi__profile-form__left {
-    flex: 0.5;
-}
-.immi__profile-form__right {
-    flex: 1;
+  display: grid;
+  grid-template-columns: 40% 60%;
+  gap: 1rem;
+  margin-top: 1rem;
+  justify-content: center;
+  align-items: center;
+  vertical-align: middle;
 }
 
-.immi__profile-form img {
-    width: 220px;
-    height: 220px;
+.immi__profile-form__left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
 }
-.immi__profile-form__group {
+
+.immi__profile-form input, select {
+  min-height: 50px;
+  width: 60%;
+  font-family: var(--font-family);
+  font-size: 16px;
+  line-height: 27px;
+  background: var(--color-footer);
+  border: 2px solid var(--color-footer);
+  padding: 0 0.5rem;
+  outline: none;
+  color: #fff;
+  border-radius: 5px;
+}
+
+.immi__profile-form input[type="checkbox"] {
+  background: var(--color-footer);
+  color: #fff;
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.immi__profile-form button {
+  min-height: 50px;
+  color: #fff;
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 27px;
+  
+  background: #cc6810;
+  border-radius: 5px;
+  cursor: pointer;
+  outline: none;
+  padding: 0 1rem;
+  margin: 0.2rem;
+  border: none;
+}
+.immi__profile-form img {
+  width: 220px;
+  height: 220px;
+}
+
+@media screen and (max-width: 850px) {
+  .immi__profile-form {
     display: flex;
     flex-direction: column;
-    margin-top: 0.2rem;
   }
-  .immi__profile-form__group input {
-    min-height: 50px;
-    width: 60%;
-    font-family: var(--font-family);
-    font-size: 16px;
-    line-height: 27px;
-    background: var(--color-footer);
-    border: 2px solid var(--color-footer);
-    padding: 0 0.5rem;
-    outline: none;
-    color: #fff;
-    border-radius: 5px;
+  .immi__profile-form input, select {
+    width: 90%;
+    font-size: 14px;
+    line-height: 22px;
   }
-  .immi__profile-form__group button {
-    flex: 0.6;
-    min-height: 50px;
-    width: 60%;
-    color: #fff;
-    font-family: var(--font-family);
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 27px;
-    
-    background: #cc6810;
-    border-radius: 5px;
-    cursor: pointer;
-    outline: none;
-    padding: 0 1rem;
-    border: none;
+  .immi__profile-form button {
+    width: 90%;
+    font-size: 14px;
+    line-height: 22px;
   }
+}

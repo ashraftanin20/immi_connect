@@ -1,6 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { loginUser } from './actions/LoginAction';
 import { logoutUser } from './actions/LogoutAction';
+import { resetUserProfile } from './ProfileSlice';
 
 const initialState = {
     userInfo: localStorage.getItem("userInfo") ? JSON.parse(localStorage.getItem("userInfo")) : null,
@@ -27,7 +28,9 @@ const authSlice = createSlice({
         resetUser(state) {
             state.userInfo = null;
             state.userLoaded = false;
-            localStorage.removeItem("userInfo");
+            state.userProfile = null;
+            state.userProfile.user = null;
+            
         }
     },
     extraReducers: (builder) => {
@@ -57,8 +60,10 @@ const authSlice = createSlice({
         .addCase(logoutUser.fulfilled, (state, action) => {
             state.userInfo = null;
             state.userLoading = false;
-            state.userLoaded = false;
+            state.userLoaded = false;      
             localStorage.removeItem("userInfo");
+            resetUserProfile(); 
+            window.location.reload(false)     
         })
         .addCase(logoutUser.rejected, (state, action) => {
             return {
