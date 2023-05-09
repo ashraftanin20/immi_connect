@@ -1,0 +1,35 @@
+
+.immi__carousel-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.immi__carousel-item img {
+    height: 120px;
+    width: 120px;
+    margin-top: 0.5rem;
+}
+.immi__carousel-item h2, h3 {
+    color: var(--color-header);
+    font-family: var(--font-family);
+}
+.immi__carousel-item h2 {
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 24px;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+}
+.immi__carousel-item h3 {
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 22px;
+}
+@media screen and (max-width: 850px) {
+    .immi__carousel-item h2 {
+        font-size: 18px;
+    }
+    .immi__carousel-item h3 {
+        font-size: 16px;
+    }
+}

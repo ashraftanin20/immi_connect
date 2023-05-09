@@ -39,10 +39,7 @@ function Posts() {
                     <p>No Posts</p>
                 </div>
             )
-            
-        
-        }
-            
+            }
               <br />
               <button><Link to="/posts/create">Add Post</Link></button>
             </div>

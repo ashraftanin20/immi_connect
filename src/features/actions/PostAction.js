@@ -16,6 +16,21 @@ export const getPosts = createAsyncThunk("posts/getPosts",
     }
 });
 
+export const getPost = createAsyncThunk("posts/getPost", 
+                            async (id, {rejectWithValue}) => {
+    try {
+        const { data } = await axiosClient.post('http://localhost:8000/api/post', {id});
+        return data.post;
+
+    } catch(error){
+        if (error.response && error.response.data.message) {
+            return rejectWithValue(error.response.data.message)
+        } else {
+            return rejectWithValue(error.message)
+        }
+    }
+});
+
 export const createPost = createAsyncThunk("posts/createPost", 
                             async (post, {rejectWithValue}) => {
     try {

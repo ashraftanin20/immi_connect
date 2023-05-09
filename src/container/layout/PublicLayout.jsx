@@ -1,9 +1,10 @@
 import React from 'react'
-import { About, Header, Footer, Possibility, Features, Blog } from "../index";
-import { Article, Brand, CTA, Feature, Navbar } from "../../components/index";
+import { About, Header, Footer, Features, Blog } from "../index";
+import { CTA, Navbar } from "../../components/index";
 
 import "../../App.css";
 import "../../index.css";
+import Volunteers from '../volunteer/Volunteers';
 function PublicLayout() {
   return (
     <div className="App">
@@ -11,11 +12,10 @@ function PublicLayout() {
       <Navbar />
       <Header />
     </div>
-      <Brand />
       <About />
       <Features />
-      <Possibility />
       <CTA />
+      <Volunteers />
       <Blog />
       <Footer />
   </div>

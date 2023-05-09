@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { createPost, getPosts } from './actions/PostAction';
+import { createPost, getPost, getPosts } from './actions/PostAction';
 
 const initialState = {
     postUpdated: false,
@@ -8,6 +8,7 @@ const initialState = {
     postLoading: false,
     postCreated: false,
     posts: null,
+    post: null,
     newPost: null
 }
 const postSlice = createSlice({
@@ -28,6 +29,20 @@ const postSlice = createSlice({
             state.posts = action.payload;
         })
         .addCase(getPosts.rejected, (state, action) => {
+            state.postLoading = false;
+            state.postLoaded = false;
+            state.postError = action.payload;
+        })
+        .addCase(getPost.pending, (state, action) => {
+            state.postLoading = true;
+            state.postError = null;
+        })
+        .addCase(getPost.fulfilled, (state, action) => {
+            state.postLoading = false;
+            state.postLoaded = true;
+            state.post = action.payload;
+        })
+        .addCase(getPost.rejected, (state, action) => {
             state.postLoading = false;
             state.postLoaded = false;
             state.postError = action.payload;

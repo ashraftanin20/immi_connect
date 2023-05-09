@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom';
 import './profile.css';
@@ -19,8 +19,11 @@ function UserProfile() {
       if(!userInfo) {
         navitate('/');
       }
-      dispatch(getProfile(userInfo.user.id)); 
-    }, [userInfo, navitate, dispatch]);
+      else if(!profileLoaded){
+        dispatch(getProfile(userInfo.user.id)); 
+      }
+      
+    }, [userInfo, navitate, dispatch, profileLoaded]);
     
   return (
     <div className="immi__form-container section__margin">
@@ -31,23 +34,30 @@ function UserProfile() {
             {profileLoading && (<LoadingBox>Loading...</LoadingBox>)}
             {profileError && (<MessageBox variant="danger">{profileError}</MessageBox>)}
             </div>
-            <div className="immi__profile-form">
-              <div className="immi__profile-form__left">      
-                  <img src={userProfile.user.image || defaulProfile} alt="user porofile" />
+            {profileLoaded ? (
+                   <div className="immi__profile-form">
+                   <div className="immi__profile-form__left">      
+                       <img src={userProfile.user.image || defaulProfile} alt="user porofile" />
+                   </div>
+                   <div className="immi__profile-form__right">
+                       <p><strong>Name: </strong>{userProfile.user.name}</p>
+                       <p><strong>Email: </strong>{userProfile.user.email}</p>
+                       <p><strong>Telephone: </strong>{userProfile.user.telephone}</p>
+                       <p><strong>I am a Volunteer: </strong>{userProfile.user.is_volunteer === 1 ? "Yes" : "No"}</p>
+                       {userProfile.user.is_volunteer === 1 && (
+                       <p><strong>What kind(s) of support I can provide: </strong>{userProfile.user.support_type}</p>)}
+                     <div className="immi__profile-form__group">
+                       <br />
+                       <button><Link to="/user/edit">Edit Profile</Link></button>
+                     </div>
+                   </div>
+                 </div>
+            ) : (
+              <div>
+                <p>Sorry, So profile data available!</p>
               </div>
-              <div className="immi__profile-form__right">
-                  <p><strong>Name: </strong>{userProfile.user.name}</p>
-                  <p><strong>Email: </strong>{userProfile.user.email}</p>
-                  <p><strong>Telephone: </strong>{userProfile.user.telephone}</p>
-                  <p><strong>I am a Volunteer: </strong>{userProfile.user.is_volunteer === 1 ? "Yes" : "No"}</p>
-                  {userProfile.user.is_volunteer === 1 && (
-                  <p><strong>What kind(s) of support I can provide: </strong>{userProfile.user.support_type}</p>)}
-                <div className="immi__profile-form__group">
-                  <br />
-                  <button><Link to="/user/edit">Edit Profile</Link></button>
-                </div>
-              </div>
-            </div>
+            )}
+
           </div>
         </div>
   )

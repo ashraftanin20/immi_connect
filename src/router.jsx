@@ -7,6 +7,8 @@ import UserProfile from "./container/user/UserProfile";
 import EditProfile from "./container/user/EditProfile";
 import CreatePost from "./container/post/CreatePost";
 import Posts from "./container/post/Posts";
+import Post from "./container/post/Post";
+import Volunteer from "./container/volunteer/Volunteer";
 
 const router = createBrowserRouter([
     {
@@ -38,8 +40,16 @@ const router = createBrowserRouter([
                 element: <Posts />
             },
             {
+                path: '/posts/:id',
+                element: <Post />
+            },
+            {
                 path: '/posts/create',
                 element: <CreatePost />
+            },
+            {
+                path: '/volunteer/:id',
+                element: <Volunteer />
             }
             
         ]
