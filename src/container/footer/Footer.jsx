@@ -1,6 +1,7 @@
 import React from 'react';
 import logo from '../../assets/logo.png';
 import './footer.css';
+import { Link } from 'react-router-dom';
 
 const Footer = () => (
   <div className="immi__footer section__padding">
@@ -9,7 +10,7 @@ const Footer = () => (
     </div>
 
     <div className="immi__footer-btn">
-      <p>Request Early Access</p>
+      <p><Link to={"/login"}>Get Connected with US</Link></p>
     </div>
 
     <div className="immi__footer-links">

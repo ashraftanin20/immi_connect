@@ -9,6 +9,7 @@ import CreatePost from "./container/post/CreatePost";
 import Posts from "./container/post/Posts";
 import Post from "./container/post/Post";
 import Volunteer from "./container/volunteer/Volunteer";
+import Message from "./container/message/Message";
 
 const router = createBrowserRouter([
     {
@@ -50,6 +51,10 @@ const router = createBrowserRouter([
             {
                 path: '/volunteer/:id',
                 element: <Volunteer />
+            },
+            {
+                path: '/user/message',
+                element: <Message />
             }
             
         ]

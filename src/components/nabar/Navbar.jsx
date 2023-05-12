@@ -1,19 +1,18 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { RiMenu3Line, RiCloseLine } from 'react-icons/ri';
 import './navbar.css';
 import logo from '../../assets/logo2.png';
-import { Link, Navigate, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { logoutUser } from '../../features/actions/LogoutAction';
-import { loadUser } from '../../features/AuthSlice';
 import { FaCaretDown } from 'react-icons/fa';
 
 const Menu = () => (
   <>
-    <p><Link to="/">Home</Link></p>
-    <p><Link to="/#about">About IC</Link></p>
+    <p><a href="/">Home</a></p>
+    <p><a href="/#about">About IC</a></p>
     <p><a href="/#features">Explore</a></p>
-    <p><a href="#home">Library</a></p>
+    <p><a href="/posts">Posts</a></p>
   </>
 )
 function Navbar() {
@@ -42,6 +41,7 @@ function Navbar() {
           <div className="immi__navbar-dropdown__content scale-up-center">
               <p><Link to='/user/profile' >My Profile</Link></p>
               <p><Link to='/user/post'>My Posts</Link></p>
+              <p><Link to='/user/message'>Messages</Link></p>
               <br />
               <hr />
               <p><Link onClick={signoutHandler} >Sign Out</Link></p>

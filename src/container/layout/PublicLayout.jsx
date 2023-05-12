@@ -16,7 +16,6 @@ function PublicLayout() {
       <Features />
       <CTA />
       <Volunteers />
-      <Blog />
       <Footer />
   </div>
   )

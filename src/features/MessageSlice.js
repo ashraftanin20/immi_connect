@@ -3,8 +3,7 @@ import { sendMessage } from './actions/MessageAction';
 const initialState = {
     messageError: null,
     messageLoading: false,
-    messageSend: false,
-    messages: null,
+    messageSent: false,
     message: null,
 }
 const MessageSlice = createSlice({
@@ -21,14 +20,13 @@ const MessageSlice = createSlice({
         })
         .addCase(sendMessage.fulfilled, (state, action) => {
             state.messageLoading = false;
-            state.messageError = true;
+            state.messageSent = true;
             state.message = action.payload;
         })
         .addCase(sendMessage.rejected, (state, action) => {
             state.messageLoading = false;
             state.messageError = action.payload;
         })
-    
     },
 });
 

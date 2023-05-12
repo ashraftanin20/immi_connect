@@ -8,6 +8,7 @@ import categoryReducer from './features/CategorySlice';
 import commentReducer from './features/CommentSlice';
 import usersReducer from './features/UserSlice';
 import messageReducer from './features/MessageSlice';
+import messageLoadReducer from './features/MessageLoadSlice';
 import volunteerReducer from './features/VolunteerSlice';
 //import loginReducer from './features/actions/LoginAction';
 
@@ -22,6 +23,7 @@ const store = configureStore({
         commentData: commentReducer,
         usersData: usersReducer,
         messageData: messageReducer,
+        messagesData: messageLoadReducer,
         volunteerData: volunteerReducer,
     },
 });

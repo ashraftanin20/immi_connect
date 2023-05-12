@@ -1,0 +1,34 @@
+.immi__message-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.immi__message-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.2rem;
+}
+.immi__message-body {
+    display: flex;
+    align-items: center;
+}
+.immi__message-body table {
+    width: 100%;
+}
+thead {
+    font-family: var(--font-family);
+    font-size: large;
+    color: #fff;
+    background: #cc6810;
+    text-align: center;
+}
+th {
+    padding: 0.3rem 0.2rem 0.3rem 0.2rem;
+}
+td {
+    border-bottom: 1px solid #fff;
+}
