@@ -18,7 +18,7 @@ export const getUsers = createAsyncThunk("users/getUsers",
 export const getVolunteer = createAsyncThunk("user/getUser", 
                             async (id, {rejectWithValue}) => {
     try {
-        const { data } = await axiosClient.post('http://localhost:8000/api/user', {id});
+        const { data } = await axiosClient.post('/api/user', {id});
         return data;
 
     } catch(error){

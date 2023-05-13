@@ -4,7 +4,7 @@ import axiosClient from "../../axios-client";
 export const getCategories = createAsyncThunk("categories/getCategories", 
                             async (value, {rejectWithValue}) => {
     try {
-        const { data } = await axiosClient.get('http://localhost:8000/api/categories');
+        const { data } = await axiosClient.get('/api/categories');
         return data;
 
     } catch(error){

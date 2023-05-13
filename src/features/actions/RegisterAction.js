@@ -6,7 +6,7 @@ export const registerUser = createAsyncThunk("auth/registerUser",
     try {
       
         //const response = await axiosClient.get('http://localhost:8000/sanctum/csrf-cookie');
-        const { data } = await axiosClient.post("http://localhost:8000/api/signup", {
+        const { data } = await axiosClient.post("/api/signup", {
             name: values.name,
             email: values.email,
             password: values.password,

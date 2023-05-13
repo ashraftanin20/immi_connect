@@ -19,7 +19,7 @@ export const getPosts = createAsyncThunk("posts/getPosts",
 export const getPost = createAsyncThunk("posts/getPost", 
                             async (id, {rejectWithValue}) => {
     try {
-        const { data } = await axiosClient.post('http://localhost:8000/api/post', {id});
+        const { data } = await axiosClient.post('/api/post', {id});
         return data.post;
 
     } catch(error){

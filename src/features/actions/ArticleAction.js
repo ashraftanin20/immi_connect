@@ -4,7 +4,7 @@ import axiosClient from "../../axios-client";
 export const getArticles = createAsyncThunk("posts/latestPosts", 
                             async (value, {rejectWithValue}) => {
     try {
-        const { data } = await axiosClient.get('http://localhost:8000/api/posts/latest');
+        const { data } = await axiosClient.get('/api/posts/latest');
         return data;
 
     } catch(error){

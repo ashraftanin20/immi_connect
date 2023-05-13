@@ -1,7 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axiosClient from "../../axios-client";
-import { useDispatch } from "react-redux";
-import { loadUser } from "../AuthSlice";
 
 export const loginUser = createAsyncThunk(
     "auth/loginUser", 
@@ -10,7 +8,7 @@ export const loginUser = createAsyncThunk(
                  
         try {
             //const response = await axiosClient.get('http://localhost:8000/sanctum/csrf-cookie');
-            const { data } = await axiosClient.post("http://localhost:8000/api/login", {
+            const { data } = await axiosClient.post("/api/login", {
                 email: user.email,
                 password: user.password,
             });

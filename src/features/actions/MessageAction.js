@@ -27,13 +27,13 @@ export const getMessages = createAsyncThunk("message/getMessages",
         const inbox = value.inbox;
     
         if(inbox) {
-            const { data } = await axiosClient.post('http://localhost:8000/api/message/received', {
+            const { data } = await axiosClient.post('/api/message/received', {
              user_id: value.user_id,});
 
              return data;
         
         } else {
-            const { data } = await axiosClient.post('http://localhost:8000/api/message/sent', {
+            const { data } = await axiosClient.post('/api/message/sent', {
                 user_id: value.user_id,});
                 return data;
         }

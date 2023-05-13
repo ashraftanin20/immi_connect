@@ -35,7 +35,7 @@ export const updateProfile = createAsyncThunk("user/updateProfile",
 export const getProfile = createAsyncThunk("user/Profile", 
                             async (userId, {rejectWithValue}) => {
     try {
-        const { data } = await axiosClient.post('http://localhost:8000/api/profile', {id: userId});
+        const { data } = await axiosClient.post('/api/profile', {id: userId});
         return data;
     } catch(error){
         if (error.response && error.response.data.message) {

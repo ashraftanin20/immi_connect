@@ -4,7 +4,7 @@ import axiosClient from "../../axios-client";
 export const createComment = createAsyncThunk("comments/createComment", 
                             async (payload, {rejectWithValue}) => {
     try {
-        const { data } = await axiosClient.post('http://localhost:8000/api/comments/create',{
+        const { data } = await axiosClient.post('/api/comments/create',{
             comment_body: payload.comment_body,
             post_id: payload.post_id,
             user_id: payload.user_id,
