@@ -4,7 +4,7 @@ import axiosClient from "../../axios-client";
 export const getPosts = createAsyncThunk("posts/getPosts", 
                             async (value, {rejectWithValue}) => {
     try {
-        const { data } = await axiosClient.get('http://localhost:8000/api/posts');
+        const { data } = await axiosClient.get('/api/posts');
         return data;
 
     } catch(error){
@@ -34,7 +34,7 @@ export const getPost = createAsyncThunk("posts/getPost",
 export const createPost = createAsyncThunk("posts/createPost", 
                             async (post, {rejectWithValue}) => {
     try {
-        const { data } = await axiosClient.post('http://localhost:8000/api/posts/create',{
+        const { data } = await axiosClient.post('/api/posts/create',{
             title: post.title,
             post_body: post.post_body,
             user_id: post.user_id,

@@ -23,7 +23,7 @@ export const createComment = createAsyncThunk("comments/createComment",
 export const getComments = createAsyncThunk("comments/getComments", 
                             async (payload, {rejectWithValue}) => {
     try {
-        const { data } = await axiosClient.post('http://localhost:8000/api/comments',{
+        const { data } = await axiosClient.post('/api/comments',{
             post_id: payload.post_id,
         });
         return data.comments; 

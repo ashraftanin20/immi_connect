@@ -33,8 +33,6 @@ function EditProfile() {
             token: userInfo.token,
             id: userInfo.user.id
           }
-
-          console.log(payload);
           dispatch(updateProfile(payload));
     }
 

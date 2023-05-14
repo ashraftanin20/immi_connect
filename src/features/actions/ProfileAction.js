@@ -5,14 +5,7 @@ export const updateProfile = createAsyncThunk("user/updateProfile",
                             async (user, {rejectWithValue}) => {
     try {
       
-        // let config = {
-        //     headers: {
-        //         Authorization: `Bearer ${user.token}`,
-        //         "Content-Type": "multipart/form-data",
-        //     }
-        // }
-        //const response = await axiosClient.get('http://localhost:8000/sanctum/csrf-cookie');
-        const { data } = await axiosClient.put('http://localhost:8000/api/profile/update',{
+        const { data } = await axiosClient.put('/api/profile/update',{
             id: user.id,
             name: user.name,
             email: user.email,

@@ -4,7 +4,7 @@ import axiosClient from "../../axios-client";
 export const sendMessage = createAsyncThunk("message/sendMessage", 
                             async (value, {rejectWithValue}) => {
     try {
-        const { data } = await axiosClient.post('http://localhost:8000/api/message/send', {
+        const { data } = await axiosClient.post('/api/message/send', {
             subject: value.subject,
             message_body: value.message_body,
             sender_id: value.sender_id,

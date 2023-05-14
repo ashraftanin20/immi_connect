@@ -47,7 +47,7 @@ function Volunteers() {
           {users !== null ? (
             users.data.map((user) => (
               <div key={user.id} className='immi__carousel-item'>
-                <Link to={`http://localhost:3000/volunteer/${user.id}`}><h2>{user.name}</h2></Link>
+                <Link to={`/volunteer/${user.id}`}><h2>{user.name}</h2></Link>
                 <h3>{user.support_type}</h3>
                 <img src={user.image || defaulProfile} alt="user porofile" />
               </div>

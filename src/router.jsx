@@ -6,10 +6,11 @@ import Login from "./container/Login/Login";
 import UserProfile from "./container/user/UserProfile";
 import EditProfile from "./container/user/EditProfile";
 import CreatePost from "./container/post/CreatePost";
-import Posts from "./container/post/Posts";
 import Post from "./container/post/Post";
 import Volunteer from "./container/volunteer/Volunteer";
 import Message from "./container/message/Message";
+import Posts from "./container/post/Posts";
+
 
 const router = createBrowserRouter([
     {
@@ -18,43 +19,43 @@ const router = createBrowserRouter([
     },
     {
         path: '/',
-        element: <UserLayout />,
+        element: <UserLayout exact />,
         children: [
             {
                 path:'/login',
-                element: <Login />
+                element: <Login exact /> 
             },
             {
-                path:'/register',
-                element: <Register />
+                path: '/register',
+                element: <Register exact />
             },
             {
                 path: '/user/profile',
-                element: <UserProfile />
+                element: <UserProfile exact />
             },
             {
                 path: '/user/edit',
-                element: <EditProfile />
+                element: <EditProfile exact />
             },
             {
                 path: '/posts',
-                element: <Posts />
+                element: <Posts exact />
             },
             {
                 path: '/posts/:id',
-                element: <Post />
+                element: <Post exact />
             },
             {
                 path: '/posts/create',
-                element: <CreatePost />
+                element: <CreatePost exact />
             },
             {
                 path: '/volunteer/:id',
-                element: <Volunteer />
+                element: <Volunteer exact />
             },
             {
                 path: '/user/message',
-                element: <Message />
+                element: <Message exact />
             }
             
         ]

@@ -9,10 +9,10 @@ import { FaCaretDown } from 'react-icons/fa';
 
 const Menu = () => (
   <>
-    <p><a href="/">Home</a></p>
+    <p><Link to="/">Home</Link></p>
     <p><a href="/#about">About IC</a></p>
     <p><a href="/#features">Explore</a></p>
-    <p><a href="/posts">Posts</a></p>
+    <p><Link to="/posts">Posts</Link></p>
   </>
 )
 function Navbar() {

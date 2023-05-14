@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import './posts.css';
 import LoadingBox from '../../components/LoadingBox';
 import MessageBox from '../../components/MessageBox';
@@ -74,27 +74,30 @@ function Post() {
               ) : (<p>NO COMMENT!</p>)
               }
           </div>
-          <div>
-          {commentLoaded ? (<p>Your comment added succeffully!</p>) :(  
-            <form className='immi__form' onSubmit={handleSubmit}>
-                <div className='immi__form-heading'>
-                    <h2 className="gradient__text">Add Comment</h2>
-                    {commentLoading && (<LoadingBox><p>Loading...</p></LoadingBox>)}
-                    {commentError && (<MessageBox variant="danger"><p>{commentError}</p></MessageBox>)}
-                </div>
-                <div className='immi__form-group'>
-                    <textarea rows={6} ref={commentRef} name="comment_body" 
-                    placeholder="Enter your comment here" />
-                </div>
-                
-                <div className='immi__form-group'>
-                    <br />
-                    <button type='submit'>{commentLoading ? ("Adding ..."): "Add Comment"}</button>
-                </div>
-            </form>
-          )
-        }
-          </div>
+          {userInfo !== null ? (
+            <div>
+            {commentLoaded ? (<p>Your comment added succeffully!</p>) :(  
+              <form className='immi__form' onSubmit={handleSubmit}>
+                  <div className='immi__form-heading'>
+                      <h2 className="gradient__text">Add Comment</h2>
+                      {commentLoading && (<LoadingBox><p>Loading...</p></LoadingBox>)}
+                      {commentError && (<MessageBox variant="danger"><p>{commentError}</p></MessageBox>)}
+                  </div>
+                  <div className='immi__form-group'>
+                      <textarea rows={6} ref={commentRef} name="comment_body" 
+                      placeholder="Enter your comment here" />
+                  </div>
+                  
+                  <div className='immi__form-group'>
+                      <br />
+                      <button type='submit'>{commentLoading ? ("Adding ..."): "Add Comment"}</button>
+                  </div>
+              </form>
+            )
+          }
+            </div>
+          ): (<p>Please <Link to={'/login'}>Login</Link> to add comment.</p>)}
+          
         </div>
     </div>
   )

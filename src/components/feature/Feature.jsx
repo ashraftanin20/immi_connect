@@ -7,7 +7,7 @@ function Feature({id, title, text}) {
     <div className="immi__features-container__feature">
       <div className="immi__features-container__feature-title">
         <div />
-        <h1><Link to={`http://localhost:3000/posts/${id}`}>{title}</Link></h1>
+        <h1><Link to={`/posts/${id}`}>{title}</Link></h1>
       </div>
       <div className="immi__features-container__feature-text">
         <p>{text}</p>

@@ -4,7 +4,7 @@ import axiosClient from "../../axios-client";
 export const getUsers = createAsyncThunk("users/getUsers", 
                             async (value, {rejectWithValue}) => {
     try {
-        const { data } = await axiosClient.get('http://localhost:8000/api/users');
+        const { data } = await axiosClient.get('/api/users');
         return data;
 
     } catch(error){
